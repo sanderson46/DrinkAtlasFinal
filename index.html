@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drinks Atlas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+
+  <div class="atlas-container">
+
+    <!-- 1. Header -->
+    <header class="atlas-header">
+      <div class="brand-block">
+        <h1 class="site-title">Drinks Atlas</h1>
+        <div class="site-tagline">Beer by place, cocktails by weather.</div>
+      </div>
+
+      <div class="header-search-wrap">
+        <input type="search" id="header-city-search" class="atlas-search-input" placeholder="Search brewery city..." autocomplete="off">
+        <div id="city-search-autocomplete" class="autocomplete-dropdown"></div>
+      </div>
+    </header>
+
+    <!-- 2. Summary Sentence -->
+    <div class="summary-sentence-wrap" id="atlas-summary-sentence">
+      Loading breweries and cities...
+    </div>
+
+    <!-- 3. Map Area with Filters and City Menu Card -->
+    <section class="map-section-wrap">
+      <!-- Inline text-style controls above map -->
+      <div class="inline-filter-line">
+        <span>Showing</span>
+        <select id="map-filter-type" class="text-select">
+          <option value="all">all types</option>
+        </select>
+        <span>in</span>
+        <select id="map-filter-state" class="text-select">
+          <option value="all">all states</option>
+        </select>
+        <span style="margin-left: 12px;">Top cities:</span>
+        <select id="map-top-cities-limit" class="text-select">
+          <option value="10">10</option>
+          <option value="15" selected>15</option>
+          <option value="25">25</option>
+        </select>
+      </div>
+
+      <!-- Layout Grid (Map + Sliding City Menu Card) -->
+      <div class="map-layout-grid" id="map-layout-grid">
+        <!-- Main Map Area -->
+        <div class="map-canvas-area">
+          <div id="brewery-map-plot"></div>
+          <div id="top-cities-plot"></div>
+          <div class="quiet-city-prompt" id="quiet-city-prompt">
+            Pick a city on the map to see tonight's weather and drinks.
+          </div>
+        </div>
+
+        <!-- 4. City Menu Card (Bar menu style) -->
+        <div class="menu-card" id="city-menu-card">
+          <div class="menu-card-header">
+            <button class="btn-close-menu" id="btn-close-city-menu" title="Clear selected city">×</button>
+            <div class="menu-city-name" id="menu-city-name">--</div>
+            <div class="menu-weather-line" id="menu-weather-line">--</div>
+          </div>
+
+          <div class="menu-section-title">Tonight's menu</div>
+          <div class="menu-drinks-list" id="menu-drinks-list"></div>
+
+          <div class="menu-breweries-wrap">
+            <div class="menu-section-title" style="margin-bottom: 6px;">Breweries here</div>
+            <div class="menu-breweries-summary" id="menu-breweries-summary">--</div>
+            <div class="menu-breweries-names" id="menu-breweries-names">--</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Browse Cocktails Section (below the map) -->
+    <section class="browse-cocktails-section">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; gap: 12px;">
+        <h2 class="section-heading">Browse Cocktails</h2>
+        <span id="browse-tonight-filter-link" class="tonight-filter-link-wrap">Show only tonight's menu</span>
+      </div>
+
+      <!-- Filters in one text line -->
+      <div class="browse-filter-bar">
+        <div class="filter-group-item">
+          <span>Search:</span>
+          <input type="text" id="browse-search-input" class="text-field-input" placeholder="recipe or ingredient..." style="width: 160px;">
+        </div>
+
+        <div class="filter-group-item">
+          <span>Base:</span>
+          <select id="browse-filter-base" class="text-select">
+            <option value="all">all bases</option>
+          </select>
+        </div>
+
+        <div class="filter-group-item">
+          <span>Flavor:</span>
+          <select id="browse-filter-flavor" class="text-select">
+            <option value="all">all families</option>
+          </select>
+        </div>
+
+        <div class="filter-group-item">
+          <span>Strength:</span>
+          <input type="number" id="browse-min-str" class="text-num-input" value="0" min="0" max="80">
+          <span>to</span>
+          <input type="number" id="browse-max-str" class="text-num-input" value="80" min="0" max="80">
+          <span>%</span>
+          <label style="display: flex; align-items: center; gap: 4px; margin-left: 6px; cursor: pointer;">
+            <input type="checkbox" id="browse-inc-no-str" checked>
+            <span style="font-size: 11px;">include n/a</span>
+          </label>
+        </div>
+
+        <div class="filter-group-item">
+          <span>Ingredients:</span>
+          <input type="number" id="browse-min-ing" class="text-num-input" value="1" min="1" max="15">
+          <span>to</span>
+          <input type="number" id="browse-max-ing" class="text-num-input" value="15" min="1" max="15">
+        </div>
+
+        <div class="filter-group-item">
+          <span>Ingredients I have:</span>
+          <input type="text" id="browse-have-ings" class="text-field-input" placeholder="gin, campari..." style="width: 140px;">
+        </div>
+      </div>
+
+      <!-- Fig 4 Strength Scattergl -->
+      <div id="fig4-browse-strength-plot"></div>
+
+      <!-- Recipe Table -->
+      <div class="recipe-table-wrap">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 12px; color: var(--text-muted);">
+          <span id="browse-count-note">Loading recipes...</span>
+          <span>Click any row or chart point to expand recipe details.</span>
+        </div>
+        <table class="recipe-table">
+          <thead>
+            <tr>
+              <th style="width: 44px;"></th>
+              <th>Name</th>
+              <th>Style</th>
+              <th>Strength</th>
+              <th>Serving Temp</th>
+              <th>Prep Time</th>
+            </tr>
+          </thead>
+          <tbody id="browse-recipe-tbody"></tbody>
+        </table>
+        <div class="pagination-controls" id="browse-pagination-controls"></div>
+      </div>
+    </section>
+
+    <!-- 6. Footer -->
+    <footer class="atlas-footer">
+      <div>Data sources: Open Brewery DB, 24cocktails.com, Open-Meteo</div>
+      <div class="footer-note">Birthplaces, state signatures, and regional favorites are our picks. Weather and names come from the data.</div>
+      <div class="footer-note" style="color: #637584;">October 2026</div>
+    </footer>
+
+  </div>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/state.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/cocktails.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

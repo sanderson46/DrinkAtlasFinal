@@ -1,0 +1,632 @@
+{
+  "special_places": {
+    "Manhattan": {
+      "city": "New York",
+      "state": "New York",
+      "label": "New York, NY"
+    },
+    "Brooklyn": {
+      "city": "New York",
+      "state": "New York",
+      "label": "New York, NY"
+    },
+    "Bronx": {
+      "city": "New York",
+      "state": "New York",
+      "label": "New York, NY"
+    },
+    "Queens": {
+      "city": "New York",
+      "state": "New York",
+      "label": "New York, NY"
+    },
+    "Harlem": {
+      "city": "New York",
+      "state": "New York",
+      "label": "New York, NY"
+    },
+    "Hollywood": {
+      "city": "Los Angeles",
+      "state": "California",
+      "label": "Los Angeles, CA"
+    }
+  },
+  "place_matches": {
+    "New York, NY": [
+      "rum_manhattan",
+      "dd_s_brooklyn_s_finest",
+      "irish_manhattan",
+      "apple_manhattan",
+      "stiletto_manhattan",
+      "luca_s_manhattan",
+      "brooklyn_cocktail",
+      "french_manhattan",
+      "bananas_foster_manhattan",
+      "sake_manhattan",
+      "white_manhattan",
+      "bronx_income_tax",
+      "dubonnet_manhattan",
+      "brooklyn_tai",
+      "improved_bronx",
+      "emerald_manhattan",
+      "heering_manhattan",
+      "apple_manhattan_2",
+      "oddball_manhattan_dry",
+      "d_s_red_brandy_manhattan",
+      "anthony_s_black_manhattan",
+      "golden_bronx",
+      "red_manhattan",
+      "latin_manhattan",
+      "manhattan_island",
+      "brooklyn_heights",
+      "manhattan",
+      "brooklyn_s_finest",
+      "dry_manhattan",
+      "frozen_crown_manhattan",
+      "queens",
+      "preakness_manhattan",
+      "bonaparte_s_manhattan",
+      "straight_outta_brooklyn",
+      "brandy_manhattan",
+      "macky_black_manhattan",
+      "perfect_summit_manhattan",
+      "manhattan_mimic",
+      "spicy_manhattan",
+      "brooklyn_godfather",
+      "anejo_manhattan",
+      "black_manhattan",
+      "s_s_manhattan",
+      "chile_manhattan",
+      "i_ll_take_manhattan",
+      "elis_ngela_s_bronx",
+      "devil_s_manhattan",
+      "blushing_bronx",
+      "mcpreakness_manhattan",
+      "dirty_brooklyn",
+      "portobello_star_manhattan",
+      "bloody_bronx_cocktail",
+      "bronx",
+      "canadian_manhattan",
+      "rat_pack_manhattan",
+      "angela_s_manhattan",
+      "southern_manhattan",
+      "reverse_manhattan",
+      "ruby_manhattan",
+      "silver_bronx",
+      "monte_manhattan",
+      "vincent_s_manhattan",
+      "mexican_in_manhattan",
+      "walnut_manhattan",
+      "pd_manhattan",
+      "bronx_cocktail",
+      "mark_s_manhattan",
+      "met_manhattan",
+      "brooklyn_bridge",
+      "black_walnut_manhattan",
+      "antica_manhattan_island",
+      "brooklyn",
+      "the_harlem",
+      "old_fashioned_manhattan",
+      "elderflower_manhattan",
+      "manhattan_transfer",
+      "tequila_manhattan",
+      "eastern_manhattan",
+      "breakfast_in_manhattan",
+      "longy_s_manhattan",
+      "burnt_manhattan",
+      "southern_comfort_manhattan",
+      "sweet_manhattan",
+      "caramel_manhattan",
+      "vintage_manhattan",
+      "manhattan_by_night",
+      "caribbean_manhattan",
+      "mexican_manhattan"
+    ],
+    "Los Angeles, CA": [
+      "hollywood_blvd",
+      "hollywood"
+    ]
+  },
+  "removed_false_positives": [
+    {
+      "name": "'A Clockwork Orange' Negroni",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Alexander - Brandy",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Alexander The Great",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Alexander Von Oosten",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Alexander's Big Brother",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Alexander's Clover Club (House-Made)",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Alexander's Sister",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Amaretto Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Ang's Chocolate Orange",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Angela's Bloody Mary (Difford's recipe)",
+      "term": "bloody mary",
+      "reason": "Refers to monarch, not place"
+    },
+    {
+      "name": "Barranquilla Green Jade",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Bellini",
+      "term": "bellini",
+      "reason": "Refers to Venetian painter, not place"
+    },
+    {
+      "name": "Bellini Peach Spritz",
+      "term": "bellini",
+      "reason": "Refers to Venetian painter, not place"
+    },
+    {
+      "name": "Bellini-Tini",
+      "term": "bellini",
+      "reason": "Refers to Venetian painter, not place"
+    },
+    {
+      "name": "Blood Orange Cocktail",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Blood Orange Margarita",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Bloody Mary (Modern Recipe)",
+      "term": "bloody mary",
+      "reason": "Refers to monarch, not place"
+    },
+    {
+      "name": "Brandy Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Caf\u00e9 \u00e0 l'orange",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Charlie Chaplin",
+      "term": "charlie chaplin",
+      "reason": "Refers to actor, not place"
+    },
+    {
+      "name": "Charlie Chaplin Cocktail",
+      "term": "charlie chaplin",
+      "reason": "Refers to actor, not place"
+    },
+    {
+      "name": "Cherry Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Cherry Brandy Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Choc Mint Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Chocolat a l'orange (Orange Chocolate)",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Chocolate Orange Espresso Martini",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Christmas Velvet Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Classic Rob Roy",
+      "term": "rob roy",
+      "reason": "Refers to Scottish folk hero, not place"
+    },
+    {
+      "name": "Clockwork Orange",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Clockwork Orange No.2",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Dry Orange Martini",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Dry Rob Roy",
+      "term": "rob roy",
+      "reason": "Refers to Scottish folk hero, not place"
+    },
+    {
+      "name": "Dutch Orange Cup",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "East Liberty",
+      "term": "liberty",
+      "reason": "Refers to concept of liberty, not Liberty city"
+    },
+    {
+      "name": "F.G.P. (Filthy Green Puritan)",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Florence Cocktail",
+      "term": "florence",
+      "reason": "Refers to Florence Italy, not Florence AL"
+    },
+    {
+      "name": "Florence Fizz",
+      "term": "florence",
+      "reason": "Refers to Florence Italy, not Florence AL"
+    },
+    {
+      "name": "Gibson Dry Martini",
+      "term": "gibson",
+      "reason": "Refers to illustrator Charles Dana Gibson, not place"
+    },
+    {
+      "name": "Green Apple & Cucumber Martini",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green As Grass",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Beast (Fresh Version)",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Beetle",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Day In Bangkok",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Deacon",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Destiny",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Devil",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Dragon",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Eyes",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Eyes Gin Cocktail",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Fairy",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Fantasy",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Fizz",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Flash",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Fly",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Ghost",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Glazier",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Horn",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Hornet",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Isaac's Special",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Lady",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Melon Sour",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Negroni",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Park",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Puritan",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Russian",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Spider",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Swizzle",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Tea Cocktail #1",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Tea Cocktail #2",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Green Tea Punch",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Harry Oleson's Chocolate Orange Espresso Martini",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Harry Oleson's Rob Roy Cocktail",
+      "term": "rob roy",
+      "reason": "Refers to Scottish folk hero, not place"
+    },
+    {
+      "name": "Harvey Wallbanger",
+      "term": "harvey wallbanger",
+      "reason": "Refers to surfer, not place"
+    },
+    {
+      "name": "Hazelnut Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Irish Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Irmina's Chocolate Orange Espresso Martini",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Irmina's Orange Brul\u00e9e",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Jack Rose",
+      "term": "jack rose",
+      "reason": "Refers to gambler or rose color, not place"
+    },
+    {
+      "name": "Jack Rose Cocktail",
+      "term": "jack rose",
+      "reason": "Refers to gambler or rose color, not place"
+    },
+    {
+      "name": "Jade Orange",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Jeanie's Orange Brul\u00e9e",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "John Collins",
+      "term": "john collins",
+      "reason": "Refers to person, not Fort Collins"
+    },
+    {
+      "name": "Kentucky Orange Blossom",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "King of Orange",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Kiwi Bellini",
+      "term": "bellini",
+      "reason": "Refers to Venetian painter, not place"
+    },
+    {
+      "name": "L'Orange Martini",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Limoncello orange",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Mac Orange",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Mary Pickford",
+      "term": "mary pickford",
+      "reason": "Refers to actress, not place"
+    },
+    {
+      "name": "Mary Pickford Cocktail",
+      "term": "mary pickford",
+      "reason": "Refers to actress, not place"
+    },
+    {
+      "name": "Mattias's Bellini (Difford's recipe)",
+      "term": "bellini",
+      "reason": "Refers to Venetian painter, not place"
+    },
+    {
+      "name": "Mattias's Green Eyes",
+      "term": "green",
+      "reason": "Refers to color, not Green Bay or Bowling Green"
+    },
+    {
+      "name": "Melon Alexander",
+      "term": "alexander",
+      "reason": "Refers to person, not Alexandria"
+    },
+    {
+      "name": "Nathalie's King of Orange",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Nathalie's Orange Brul\u00e9e",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "nil's orange bloom martini",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Olle's Bitter Orange",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Orange Bloom Martini",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    },
+    {
+      "name": "Orange Blossom",
+      "term": "orange",
+      "reason": "Refers to citrus fruit, not Orange County or city"
+    }
+  ]
+}
