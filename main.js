@@ -85,15 +85,25 @@
 
   async function init() {
     try {
-      const [brewResp, cockResp, placeResp] = await Promise.all([
-        fetch("data/brewery_cache.json"),
-        fetch("data/cocktail_cache.json"),
-        fetch("data/place_matches.json")
+      async function loadDataFile(primary, fallback) {
+        try {
+          const res = await fetch(primary);
+          if (res.ok) return await res.json();
+        } catch (e) {}
+        const res2 = await fetch(fallback);
+        if (res2.ok) return await res2.json();
+        throw new Error(`Could not load ${primary} or ${fallback}`);
+      }
+
+      const [brewData, cockData, placeData] = await Promise.all([
+        loadDataFile("data/brewery_cache.json", "brewery_cache.json"),
+        loadDataFile("data/cocktail_cache.json", "cocktail_cache.json"),
+        loadDataFile("data/place_matches.json", "place_matches.json")
       ]);
 
-      window.DrinksData.breweries = await brewResp.json();
-      window.DrinksData.cocktails = await cockResp.json();
-      window.DrinksData.placeMatches = await placeResp.json();
+      window.DrinksData.breweries = brewData;
+      window.DrinksData.cocktails = cockData;
+      window.DrinksData.placeMatches = placeData;
 
       setupCitySearch();
       setupControls();
@@ -339,5 +349,9 @@
       .replace(/"/g, "&quot;");
   }
 
-  document.addEventListener("DOMContentLoaded", init);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })(window);

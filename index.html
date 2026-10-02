@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drinks Atlas</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 </head>
 <body>
@@ -168,12 +169,45 @@
 
   </div>
 
-  <!-- Application Logic Scripts -->
-  <script src="js/state.js"></script>
-  <script src="js/weather.js"></script>
-  <script src="js/map.js"></script>
-  <script src="js/menu.js"></script>
-  <script src="js/cocktails.js"></script>
-  <script src="js/main.js"></script>
+  <!-- Application Logic Scripts (supports both js/ subfolder and flat repository root) -->
+  <script>
+    (function () {
+      const remaining = ["weather.js", "map.js", "menu.js", "cocktails.js", "main.js"];
+
+      function loadChain(list, prefix) {
+        if (!list.length) return;
+        const nextFile = list[0];
+        const s = document.createElement("script");
+        s.src = prefix + nextFile;
+        s.onload = function () {
+          loadChain(list.slice(1), prefix);
+        };
+        s.onerror = function () {
+          // If a file failed under prefix, attempt alternate prefix
+          const altPrefix = prefix === "js/" ? "" : "js/";
+          const alt = document.createElement("script");
+          alt.src = altPrefix + nextFile;
+          alt.onload = function () {
+            loadChain(list.slice(1), prefix);
+          };
+          document.body.appendChild(alt);
+        };
+        document.body.appendChild(s);
+      }
+
+      // Probe whether scripts are in "js/" or directly at the root
+      const probe = document.createElement("script");
+      probe.src = "js/state.js";
+      probe.onload = function () {
+        // "js/" folder is present
+        loadChain(remaining, "js/");
+      };
+      probe.onerror = function () {
+        // "js/" not present; files are flat at root
+        loadChain(["state.js", ...remaining], "");
+      };
+      document.body.appendChild(probe);
+    })();
+  </script>
 </body>
 </html>
